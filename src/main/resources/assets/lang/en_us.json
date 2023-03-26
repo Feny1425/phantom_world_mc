@@ -1,0 +1,8 @@
+{
+  "item.testmod.fero": "Fero",
+  "item.testmod.raw_fero": "Raw Fero",
+  "itemgroup.fero": "Fero item group",
+  "block.testmod.fero_block": "Block of Fero",
+  "block.testmod.fero_ore": "Fero Ore",
+  "block.testmod.deepslate_fero_ore": "Deepslate Fero Ore"
+}
