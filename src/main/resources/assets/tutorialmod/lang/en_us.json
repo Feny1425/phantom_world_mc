@@ -1,0 +1,18 @@
+{
+  "item.tutorialmod.fero": "Fero",
+  "item.tutorialmod.raw_fero": "Raw Fero",
+  "item.tutorialmod.small_phantom_spawn_egg": "Small Phantom spawn egg",
+  "entity.tutorialmod.small_phantom_spawn_egg": "Small Phantom",
+  "itemgroup.fero": "Phantom World",
+  "Phantom tree" : "",
+  "block.tutorialmod.fero_block": "Block of Fero",
+  "block.tutorialmod.fero_ore": "Fero Ore",
+  "block.tutorialmod.deepslate_fero_ore": "Deepslate Fero Ore",
+  "block.tutorialmod.phantom_leaves": "Phantom leaves",
+  "block.tutorialmod.phantom_log": "Phantom log",
+  "block.tutorialmod.phantom_sapling": "Phantom sapling",
+  "block.tutorialmod.stripped_phantom_log": "Stripped Phantom log",
+  "block.tutorialmod.phantom_wood": "Phantom wood",
+  "block.tutorialmod.stripped_phantom_wood": "Stripped Phantom wood",
+  "block.tutorialmod.phantom_planks": "Phantom planks"
+}
