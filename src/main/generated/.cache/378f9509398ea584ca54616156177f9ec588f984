@@ -1,0 +1,4 @@
+// 1.19.4	2023-03-27T23:03:25.941235	Tutorial Mod/Block Loot Tables
+447e58e85f0310bad8d125b3049bc1eb996a8222 data\tutorialmod\loot_tables\blocks\fero_block.json
+47b186a08aff95f4e7c3a8ad19cb2fe8384026a6 data\tutorialmod\loot_tables\blocks\fero_ore.json
+ab5e1e1472c52dd46eddc8e71364bef73a0668c0 data\tutorialmod\loot_tables\blocks\deepslate_fero_ore.json
