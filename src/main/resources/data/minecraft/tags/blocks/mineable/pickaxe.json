@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "tutorialmod:fero_block",
+    "tutorialmod:fero_ore",
+    "tutorialmod:deepslate_fero_ore"
+  ]
+}
