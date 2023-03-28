@@ -47,16 +47,6 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                         FabricRecipeProvider.conditionsFromItem(ModBlocks.STRIPPED_PHANTOM_LOG))
                 .offerTo(exporter, new Identifier(FabricRecipeProvider.getRecipeName(ModBlocks.STRIPPED_PHANTOM_WOOD)));
 
-        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, ModBlocks.STRIPPED_PHANTOM_LOG_CLEARED,8)
-                .pattern("SSS")
-                .pattern("SHS")
-                .pattern("SSS")
-                .input('S', ModBlocks.STRIPPED_PHANTOM_LOG)
-                .input('H', ModItems.FERO)
-                .criterion(FabricRecipeProvider.hasItem(ModBlocks.STRIPPED_PHANTOM_LOG),
-                        FabricRecipeProvider.conditionsFromItem(ModBlocks.STRIPPED_PHANTOM_LOG))
-                .offerTo(exporter, new Identifier(FabricRecipeProvider.getRecipeName(ModBlocks.STRIPPED_PHANTOM_LOG_CLEARED)));
-
         ShapelessRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS,ModBlocks.PHANTOM_PLANKS,4)
                 .input(ModBlockTags.PHANTOM_LOGS)
                 .criterion(FabricRecipeProvider.hasItem(ModBlocks.PHANTOM_LOG),
