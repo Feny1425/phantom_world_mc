@@ -10,7 +10,7 @@ import net.feny.phantom_world.entity.ModEntities;
 import net.feny.phantom_world.entity.custom.SmallPhantom;
 import net.feny.phantom_world.item.ModItemGroup;
 import net.feny.phantom_world.item.ModItems;
-import net.feny.phantom_world.world.dimention.ModDimensions;
+import net.feny.phantom_world.world.dimension.ModDimensions;
 import net.feny.phantom_world.world.gen.ModWorldGeneration;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -25,11 +25,12 @@ public class PhantomWorld implements ModInitializer {
 		ModItems.registerModItems();
 		ModBlocks.registerModBlocks();
 		ModWorldGeneration.generateModWorldGen();
-		ModDimensions.register();
 		ModFlammableBlockRegistry.registerFlammableBlocks();
 		ModStrippedBlockRegistry.registerStrippedBlocks();
 
 		FabricDefaultAttributeRegistry.register(ModEntities.SMALL_PHANTOM_ENTITY_TYPE, SmallPhantom.setAttributes());
+
+		ModDimensions.register();
 
 
 	}

@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "B": {
+      "item": "minecraft:book"
+    },
+    "D": {
+      "item": "phantom_world:fero_block"
+    },
+    "S": {
+      "item": "phantom_world:fero"
+    }
+  },
+  "pattern": [
+    "DDD",
+    "SBS",
+    "SSS"
+  ],
+  "result": {
+    "item": "phantom_world:phantom_world_starter"
+  },
+  "show_notification": true
+}

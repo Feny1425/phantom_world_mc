@@ -1,7 +1,7 @@
-// 1.19.4	2023-03-28T13:52:57.5358173	Tutorial Mod/Model Definitions
+// 1.19.4	2023-03-28T15:30:02.225218	Tutorial Mod/Model Definitions
 2b187850ca5539ce4f70b2bde2b2b9f83ba4cf3e assets\phantom_world\models\block\phantom_wood.json
-01a8288992a476da6717621fbc1e737f43d73ebc assets\phantom_world\models\block\deepslate_fero_ore.json
 d54ee235df4971d477d0a4042f8da74518c904fb assets\phantom_world\models\block\fero_block.json
+01a8288992a476da6717621fbc1e737f43d73ebc assets\phantom_world\models\block\deepslate_fero_ore.json
 30063dcd23d4fe601b728aac5e911e0e2d272c57 assets\phantom_world\models\item\phantom_wood.json
 fd0dd7b6cda761fb35ef3860584d1bd76e35f0e8 assets\phantom_world\blockstates\stripped_phantom_wood.json
 369df7760cced590d1136585349956ffc971a7df assets\phantom_world\blockstates\phantom_sapling.json
@@ -25,8 +25,8 @@ fc60483835a0195c0eee497c485029e72910650e assets\phantom_world\blockstates\phanto
 afa17b067566adb842ae31cd2ed216a68edfcee8 assets\phantom_world\models\block\phantom_planks.json
 322ac5f3c29ebd2a2dbad3b3768bfdfbe8383798 assets\phantom_world\models\item\fero.json
 0437c4cdd1021731a67f340e579ea7d2c655e025 assets\phantom_world\models\item\phantom_sapling.json
-560789f0ab3d172c10942ed1ee8bf5480544e1f8 assets\phantom_world\models\block\stripped_phantom_log_horizontal.json
 879993e220dce3c1ab950278c020f2c12d88926a assets\phantom_world\blockstates\fero_ore.json
+560789f0ab3d172c10942ed1ee8bf5480544e1f8 assets\phantom_world\models\block\stripped_phantom_log_horizontal.json
 89941d27146a05c69f46540f5acab4b728d52a8b assets\phantom_world\models\block\phantom_log.json
 8d2a635bb3b06eb6e70e20601327efe31ef9d735 assets\phantom_world\blockstates\phantom_wood.json
 71ac0a4b747c658735a07a47f3bcf66de87e274a assets\phantom_world\models\item\fero_ore.json

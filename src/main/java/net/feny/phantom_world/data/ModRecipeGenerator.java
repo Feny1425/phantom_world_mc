@@ -5,9 +5,11 @@ import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.feny.phantom_world.block.ModBlocks;
 import net.feny.phantom_world.item.ModItems;
 import net.feny.phantom_world.util.ModBlockTags;
+import net.minecraft.block.Blocks;
 import net.minecraft.data.server.recipe.RecipeJsonProvider;
 import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
 import net.minecraft.data.server.recipe.ShapelessRecipeJsonBuilder;
+import net.minecraft.item.Items;
 import net.minecraft.recipe.book.RecipeCategory;
 import net.minecraft.util.Identifier;
 
@@ -46,6 +48,17 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                 .criterion(FabricRecipeProvider.hasItem(ModBlocks.STRIPPED_PHANTOM_LOG),
                         FabricRecipeProvider.conditionsFromItem(ModBlocks.STRIPPED_PHANTOM_LOG))
                 .offerTo(exporter, new Identifier(FabricRecipeProvider.getRecipeName(ModBlocks.STRIPPED_PHANTOM_WOOD)));
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.PHANTOM_WORLD_STARTER,1)
+                .pattern("DDD")
+                .pattern("SBS")
+                .pattern("SSS")
+                .input('S', ModItems.FERO)
+                .input('D', ModBlocks.FERO_BLOCK)
+                .input('B', Items.BOOK)
+                .criterion(FabricRecipeProvider.hasItem(ModItems.FERO),
+                        FabricRecipeProvider.conditionsFromItem(ModItems.FERO))
+                .offerTo(exporter, new Identifier(FabricRecipeProvider.getRecipeName(ModItems.PHANTOM_WORLD_STARTER)));
 
         ShapelessRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS,ModBlocks.PHANTOM_PLANKS,4)
                 .input(ModBlockTags.PHANTOM_LOGS)
