@@ -6,6 +6,7 @@ import net.feny.tutorialmod.block.ModBlocks;
 import net.feny.tutorialmod.item.ModItems;
 import net.minecraft.data.server.recipe.RecipeJsonProvider;
 import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
+import net.minecraft.data.server.recipe.ShapelessRecipeJsonBuilder;
 import net.minecraft.item.Items;
 import net.minecraft.recipe.book.RecipeCategory;
 import net.minecraft.util.Identifier;
@@ -31,19 +32,49 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
     }
 
     private static void phantom(Consumer<RecipeJsonProvider> exporter) {
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.PHANTOM_WOOD,4)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, ModBlocks.PHANTOM_WOOD,3)
                 .pattern("SS")
                 .pattern("SS")
                 .input('S', ModBlocks.PHANTOM_LOG)
                 .criterion(FabricRecipeProvider.hasItem(ModBlocks.PHANTOM_LOG),
                         FabricRecipeProvider.conditionsFromItem(ModBlocks.PHANTOM_LOG))
                 .offerTo(exporter, new Identifier(FabricRecipeProvider.getRecipeName(ModBlocks.PHANTOM_WOOD)));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.STRIPPED_PHANTOM_WOOD,4)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, ModBlocks.STRIPPED_PHANTOM_WOOD,3)
                 .pattern("SS")
                 .pattern("SS")
                 .input('S', ModBlocks.STRIPPED_PHANTOM_LOG)
                 .criterion(FabricRecipeProvider.hasItem(ModBlocks.STRIPPED_PHANTOM_LOG),
                         FabricRecipeProvider.conditionsFromItem(ModBlocks.STRIPPED_PHANTOM_LOG))
                 .offerTo(exporter, new Identifier(FabricRecipeProvider.getRecipeName(ModBlocks.STRIPPED_PHANTOM_WOOD)));
+
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS,ModBlocks.PHANTOM_PLANKS,4)
+                .input(ModBlocks.PHANTOM_LOG)
+                .criterion(FabricRecipeProvider.hasItem(ModBlocks.PHANTOM_LOG),
+                        FabricRecipeProvider.conditionsFromItem(ModBlocks.PHANTOM_LOG))
+                .criterion(FabricRecipeProvider.hasItem(ModBlocks.STRIPPED_PHANTOM_LOG),
+                        FabricRecipeProvider.conditionsFromItem(ModBlocks.STRIPPED_PHANTOM_LOG))
+                .offerTo(exporter,new Identifier(FabricRecipeProvider.getRecipeName(ModBlocks.PHANTOM_PLANKS)));
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS,ModBlocks.PHANTOM_PLANKS,4)
+                .input(ModBlocks.STRIPPED_PHANTOM_LOG)
+                .criterion(FabricRecipeProvider.hasItem(ModBlocks.PHANTOM_LOG),
+                        FabricRecipeProvider.conditionsFromItem(ModBlocks.PHANTOM_LOG))
+                .criterion(FabricRecipeProvider.hasItem(ModBlocks.STRIPPED_PHANTOM_LOG),
+                        FabricRecipeProvider.conditionsFromItem(ModBlocks.STRIPPED_PHANTOM_LOG))
+                .offerTo(exporter,new Identifier(FabricRecipeProvider.getRecipeName(ModBlocks.PHANTOM_PLANKS)));
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS,ModBlocks.PHANTOM_PLANKS,4)
+                .input(ModBlocks.PHANTOM_WOOD)
+                .criterion(FabricRecipeProvider.hasItem(ModBlocks.PHANTOM_LOG),
+                        FabricRecipeProvider.conditionsFromItem(ModBlocks.PHANTOM_LOG))
+                .criterion(FabricRecipeProvider.hasItem(ModBlocks.STRIPPED_PHANTOM_LOG),
+                        FabricRecipeProvider.conditionsFromItem(ModBlocks.STRIPPED_PHANTOM_LOG))
+                .offerTo(exporter,new Identifier(FabricRecipeProvider.getRecipeName(ModBlocks.PHANTOM_PLANKS)));
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS,ModBlocks.PHANTOM_PLANKS,4)
+                .input(ModBlocks.STRIPPED_PHANTOM_WOOD)
+                .criterion(FabricRecipeProvider.hasItem(ModBlocks.PHANTOM_LOG),
+                        FabricRecipeProvider.conditionsFromItem(ModBlocks.PHANTOM_LOG))
+                .criterion(FabricRecipeProvider.hasItem(ModBlocks.STRIPPED_PHANTOM_LOG),
+                        FabricRecipeProvider.conditionsFromItem(ModBlocks.STRIPPED_PHANTOM_LOG))
+                .offerTo(exporter,new Identifier(FabricRecipeProvider.getRecipeName(ModBlocks.PHANTOM_PLANKS)));
     }
 }

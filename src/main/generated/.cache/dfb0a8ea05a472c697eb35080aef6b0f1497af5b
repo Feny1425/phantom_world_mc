@@ -1,10 +1,10 @@
-// 1.19.4	2023-03-27T23:03:25.9427425	Tutorial Mod/Recipes
+// 1.19.4	2023-03-28T12:04:45.0621033	Tutorial Mod/Recipes
 eb07381d46ae3736ca39fdd130c54addeae5e7a2 data\tutorialmod\advancements\recipes\building_blocks\fero.json
-6ea86a14a1c21f38f17f3177911bb449d4fc8efe data\tutorialmod\recipes\fero.json
 1897ef399fa38a23c366c71551a2247f831ab31a data\tutorialmod\advancements\recipes\misc\phantom_wood.json
+6ea86a14a1c21f38f17f3177911bb449d4fc8efe data\tutorialmod\recipes\fero.json
 826988cd048aa763e222a23ecebe0bb5c201547f data\tutorialmod\recipes\fero_block.json
-d2d59e5506e9d6067a86ef835e6a7a88e4009501 data\tutorialmod\recipes\phantom_wood.json
-a5e642e819c71373758be4b85a701b79c547d919 data\tutorialmod\recipes\stripped_phantom_wood.json
+5e35a0e5d736cf4d71b73a38392afdc44679d6ee data\tutorialmod\recipes\phantom_wood.json
+511b7d2dcf420e96dd295cbec9caea2fcae782e9 data\tutorialmod\recipes\stripped_phantom_wood.json
 be5742359cfb2cd0d83c3632ca091fadfc1dc117 data\tutorialmod\advancements\recipes\decorations\fero_block.json
 19d2b1912f40eb00f03849eaba3a2be91210ed06 data\tutorialmod\advancements\recipes\misc\fero_from_smelting_raw_fero.json
 94f6feceec008dcac1982b572d6679615706d11b data\tutorialmod\advancements\recipes\misc\stripped_phantom_wood.json

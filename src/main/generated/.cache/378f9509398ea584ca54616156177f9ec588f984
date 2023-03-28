@@ -1,4 +1,10 @@
-// 1.19.4	2023-03-27T23:03:25.941235	Tutorial Mod/Block Loot Tables
+// 1.19.4	2023-03-28T12:04:45.0601091	Tutorial Mod/Block Loot Tables
+c7bbf7b077544017bea8a71c5191cc155857f9d8 data\tutorialmod\loot_tables\blocks\phantom_sapling.json
 447e58e85f0310bad8d125b3049bc1eb996a8222 data\tutorialmod\loot_tables\blocks\fero_block.json
+19bca18e00f9d6bfafda78f9dc50ee6baa013248 data\tutorialmod\loot_tables\blocks\stripped_phantom_wood.json
 47b186a08aff95f4e7c3a8ad19cb2fe8384026a6 data\tutorialmod\loot_tables\blocks\fero_ore.json
+c1a072557e0fc2402c09b45861782a1ce36b94ad data\tutorialmod\loot_tables\blocks\phantom_wood.json
+2b8a36049109ee1034ec4946df4de217a1f384a9 data\tutorialmod\loot_tables\blocks\phantom_log.json
+2e6b419f036942ce96b91e8886a607770aebed25 data\tutorialmod\loot_tables\blocks\stripped_phantom_log.json
 ab5e1e1472c52dd46eddc8e71364bef73a0668c0 data\tutorialmod\loot_tables\blocks\deepslate_fero_ore.json
+3ba1fc5cae06a74ea4424b1b68e3f5993abf47dd data\tutorialmod\loot_tables\blocks\phantom_planks.json

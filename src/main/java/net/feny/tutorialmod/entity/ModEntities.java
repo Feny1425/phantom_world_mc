@@ -14,6 +14,7 @@ public class ModEntities {
     public static final EntityType<SmallPhantom> SMALL_PHANTOM_ENTITY_TYPE = Registry.register(
             Registries.ENTITY_TYPE,new Identifier(TutorialMod.MOD_ID,"small_phantom"),
             FabricEntityTypeBuilder.create(SpawnGroup.CREATURE,SmallPhantom::new)
-                    .dimensions(EntityDimensions.fixed(0.7f,0.9f)).build());
+                    .dimensions(EntityDimensions.fixed(0.7f,0.9f))
+                    .build());
 
 }
