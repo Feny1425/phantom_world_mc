@@ -1,6 +1,6 @@
 {
 	"schemaVersion": 1,
-	"id": "tutorialmod",
+	"id": "phantom_world",
 	"version": "${version}",
 	"name": "Tutorial Mod",
 	"description": "This is an example description! Tell everyone what your mod is about!",
@@ -12,21 +12,21 @@
 		"sources": "https://github.com/Feny1425/tutorial-mod-template-1.19.3"
 	},
 	"license": "MIT",
-	"icon": "assets/tutorialmod/icon.png",
+	"icon": "assets/phantom_world/icon.png",
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"net.feny.tutorialmod.TutorialMod"
+          "net.feny.phantom_world.PhantomWorld"
 		],
 		"client": [
-			"net.feny.tutorialmod.TutorialModClient"
+			"net.feny.phantom_world.PhantomWorldClient"
 		],
 		"fabric-datagen": [
-			"net.feny.tutorialmod.TutorialModDataGenerator"
+			"net.feny.phantom_world.PhantomWorldDataGenerator"
 		]
 	},
 	"mixins": [
-		"tutorialmod.mixins.json"
+		"phantom_world.mixins.json"
 	],
 	"depends": {
 		"fabricloader": ">=0.14.12",

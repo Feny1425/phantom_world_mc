@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "phantom_world:stripped_phantom_log",
+    "phantom_world:phantom_wood",
+    "phantom_world:stripped_phantom_wood",
+    "phantom_world:phantom_log"
+  ]
+}
