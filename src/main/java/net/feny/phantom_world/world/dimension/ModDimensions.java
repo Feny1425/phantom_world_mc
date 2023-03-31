@@ -18,14 +18,5 @@ public class ModDimensions {
 
     public static void register(){
         PhantomWorld.LOGGER.debug("Registering Dimension for "+ PhantomWorld.MOD_ID);
-
-        CustomPortalBuilder.beginPortal()
-                .frameBlock(ModBlocks.FERO_BLOCK)
-                .destDimID(PHANTOM_DIMENSION_KEY.getValue())
-                .tintColor(0,255,255)
-                .lightWithItem(ModItems.PHANTOM_WORLD_STARTER)
-                .onlyLightInOverworld()
-                .forcedSize(2,3)
-                .registerPortal();
     }
 }

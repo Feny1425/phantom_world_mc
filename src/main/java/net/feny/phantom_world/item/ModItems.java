@@ -19,6 +19,8 @@ public class ModItems {
             new Item(new FabricItemSettings()));
     public static final Item PHANTOM_WORLD_STARTER = registerItem("phantom_world_starter",
             new Item(new FabricItemSettings().maxCount(1)));
+    public static final Item PHANTOM_STARTER_RECIPE = registerItem("phantom_starter_recipe",
+            new Item(new FabricItemSettings()));
     public static final Item SMALL_PHANTOM_SPAWN_EGG = registerItem("small_phantom_spawn_egg",
             new SpawnEggItem(ModEntities.SMALL_PHANTOM_ENTITY_TYPE,0xc6fdfe, 0x000000, new FabricItemSettings()));
 
@@ -33,6 +35,7 @@ public class ModItems {
         addToItemGroup(ModItemGroup.FERO,RAW_FERO);
         addToItemGroup(ModItemGroup.FERO,SMALL_PHANTOM_SPAWN_EGG);
         addToItemGroup(ModItemGroup.FERO,PHANTOM_WORLD_STARTER);
+        addToItemGroup(ModItemGroup.FERO,PHANTOM_STARTER_RECIPE);
     }
     private static void addToItemGroup(ItemGroup group, Item item){
         ItemGroupEvents.modifyEntriesEvent(group).register(entries -> entries.add(item));

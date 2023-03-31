@@ -56,8 +56,6 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                 .input('S', ModItems.FERO)
                 .input('D', ModBlocks.FERO_BLOCK)
                 .input('B', Items.BOOK)
-                .criterion(FabricRecipeProvider.hasItem(ModItems.FERO),
-                        FabricRecipeProvider.conditionsFromItem(ModItems.FERO))
                 .offerTo(exporter, new Identifier(FabricRecipeProvider.getRecipeName(ModItems.PHANTOM_WORLD_STARTER)));
 
         ShapelessRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS,ModBlocks.PHANTOM_PLANKS,4)

@@ -9,7 +9,7 @@
       "ore_veins_enabled": true,
       "legacy_random_source": false,
       "default_block": {
-        "Name": "minecraft:coarse_dirt"
+        "Name": "minecraft:grass_block"
       },
       "default_fluid": {
         "Name": "minecraft:air",
@@ -51,7 +51,7 @@
     },
     "biome_source": {
       "type": "minecraft:fixed",
-      "biome": "minecraft:desert"
+      "biome": "minecraft:badlands"
     }
   }
 }
