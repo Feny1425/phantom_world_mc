@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "phantom_world:block/phantom_sapling"
+  }
+}

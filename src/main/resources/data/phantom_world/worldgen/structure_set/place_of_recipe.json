@@ -1,0 +1,14 @@
+{
+  "structures": [
+    {
+      "structure": "phantom_world:place_of_recipe",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 321684157,
+    "separation": 29,
+    "spacing": 30
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "phantom_world:block/stripped_phantom_log",
+    "side": "phantom_world:block/stripped_phantom_log"
+  }
+}

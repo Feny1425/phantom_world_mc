@@ -1,9 +1,9 @@
 {
   "replace": false,
   "values": [
-    "tutorialmod:phantom_log",
-    "tutorialmod:phantom_wood",
-    "tutorialmod:stripped_phantom_log",
-    "tutorialmod:stripped_phantom_wood"
+    "phantom_world:phantom_log",
+    "phantom_world:phantom_wood",
+    "phantom_world:stripped_phantom_log",
+    "phantom_world:stripped_phantom_wood"
   ]
 }

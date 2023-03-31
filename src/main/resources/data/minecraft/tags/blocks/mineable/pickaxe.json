@@ -1,8 +1,8 @@
 {
   "replace": false,
   "values": [
-    "tutorialmod:fero_block",
-    "tutorialmod:fero_ore",
-    "tutorialmod:deepslate_fero_ore"
+    "phantom_world:fero_block",
+    "phantom_world:fero_ore",
+    "phantom_world:deepslate_fero_ore"
   ]
 }
