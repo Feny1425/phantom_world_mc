@@ -16,7 +16,7 @@ public class ModItems {
     public static final Item RAW_FERO = registerItem("raw_fero",
             new Item(new FabricItemSettings()));
     public static final Item PHANTOM_WORLD_STARTER = registerItem("phantom_world_starter",
-            new Item(new FabricItemSettings().maxCount(1)));
+            new PhantomBookItem(new FabricItemSettings().maxCount(1)));
     public static final Item PHANTOM_STARTER_RECIPE = registerItem("phantom_starter_recipe",
             new Item(new FabricItemSettings()));
     public static final Item SMALL_PHANTOM_SPAWN_EGG = registerItem("small_phantom_spawn_egg",

@@ -4,21 +4,24 @@
 package net.feny.phantom_world.util;
 
 import net.fabricmc.fabric.api.object.builder.v1.client.model.FabricModelPredicateProviderRegistry;
+import net.feny.phantom_world.PhantomWorld;
 import net.feny.phantom_world.item.ModItems;
-import net.feny.phantom_world.item.StructureCompass;
 import net.minecraft.client.item.CompassAnglePredicateProvider;
 import net.minecraft.client.item.ModelPredicateProviderRegistry;
-import net.minecraft.item.CompassItem;
 import net.minecraft.item.Item;
-import net.minecraft.item.Items;
 import net.minecraft.util.Identifier;
 
 public class ModModelPredicateProviderRegistry {
     public static void registerModModel() {
+        registerPhantomBook(ModItems.PHANTOM_WORLD_STARTER);
     }
 
-    private static void registerStructureCompass(Item compass) {
-        ModelPredicateProviderRegistry.register(compass, new Identifier("angle"), new CompassAnglePredicateProvider((world, stack, entity) -> StructureCompass.createSpawnPos(world)));
+    private static void registerPhantomBook(Item book) {
+
+        FabricModelPredicateProviderRegistry.register(book,new Identifier("open"),
+                (stack, world, entity, seed) -> entity != null && entity.isUsingItem()
+                            && entity.getActiveItem() == stack ? 1.0f : 0.0f);
+
     }
 }
 
