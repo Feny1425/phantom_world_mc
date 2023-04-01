@@ -27,7 +27,6 @@ public class PhantomWorld implements ModInitializer {
 		ModWorldGeneration.generateModWorldGen();
 		ModFlammableBlockRegistry.registerFlammableBlocks();
 		ModStrippedBlockRegistry.registerStrippedBlocks();
-
 		FabricDefaultAttributeRegistry.register(ModEntities.SMALL_PHANTOM_ENTITY_TYPE, SmallPhantom.setAttributes());
 
 		ModDimensions.register();

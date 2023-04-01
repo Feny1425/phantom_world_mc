@@ -16,9 +16,9 @@ public class PhantomWorldDataGenerator implements DataGeneratorEntrypoint {
 	public void onInitializeDataGenerator(FabricDataGenerator fabricDataGenerator) {
 		FabricDataGenerator.Pack pack = fabricDataGenerator.createPack();
 
+		pack.addProvider(ModModelProvider::new);
 		pack.addProvider(ModLootTableGenerator::new);
 		pack.addProvider(ModRecipeGenerator::new);
-		pack.addProvider(ModModelProvider::new);
 		pack.addProvider(ModWorldGenerator::new);
 	}
 

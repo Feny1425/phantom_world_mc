@@ -1,8 +1,6 @@
 {
   "type": "minecraft:jigsaw",
-  "biomes": [
-    "minecraft:forest"
-  ],
+  "biomes": "#phantom_world:has_structure/is_overworld",
   "step": "surface_structures",
   "spawn_overrides": {},
   "start_pool": "phantom_world:place_of_recipe/start_pool",

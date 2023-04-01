@@ -2,6 +2,7 @@ package net.feny.phantom_world.data;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
+import net.feny.phantom_world.PhantomWorld;
 import net.feny.phantom_world.block.ModBlocks;
 import net.feny.phantom_world.item.ModItems;
 import net.feny.phantom_world.util.ModBlockTags;
@@ -56,7 +57,9 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                 .input('S', ModItems.FERO)
                 .input('D', ModBlocks.FERO_BLOCK)
                 .input('B', Items.BOOK)
-                .offerTo(exporter, new Identifier(FabricRecipeProvider.getRecipeName(ModItems.PHANTOM_WORLD_STARTER)));
+                .criterion(FabricRecipeProvider.hasItem(ModItems.PHANTOM_STARTER_RECIPE),
+                        FabricRecipeProvider.conditionsFromItem(ModItems.PHANTOM_STARTER_RECIPE))
+                .offerTo(exporter, new Identifier(FabricRecipeProvider.getRecipeName(ModItems.PHANTOM_STARTER_RECIPE)));
 
         ShapelessRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS,ModBlocks.PHANTOM_PLANKS,4)
                 .input(ModBlockTags.PHANTOM_LOGS)

@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_fero": {
+    "has_phantom_starter_recipe": {
       "conditions": {
         "items": [
           {
             "items": [
-              "phantom_world:fero"
+              "phantom_world:phantom_starter_recipe"
             ]
           }
         ]
@@ -15,20 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:phantom_world_starter"
+        "recipe": "minecraft:phantom_starter_recipe"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_fero",
+      "has_phantom_starter_recipe",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "minecraft:phantom_world_starter"
+      "minecraft:phantom_starter_recipe"
     ]
   }
 }
