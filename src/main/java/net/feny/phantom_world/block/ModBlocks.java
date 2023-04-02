@@ -5,6 +5,7 @@ import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.feny.phantom_world.PhantomWorld;
+import net.feny.phantom_world.block.models.PhantomBookHolderBlock;
 import net.feny.phantom_world.block.models.PillarBlockWithParticles;
 import net.feny.phantom_world.item.ModItemGroup;
 import net.feny.phantom_world.world.tree.PhantomSaplingGenerator;
@@ -28,6 +29,8 @@ public class ModBlocks {
     public static final Block DEEPSLATE_FERO_ORE = registerBlock("deepslate_fero_ore",
             new ExperienceDroppingBlock(FabricBlockSettings.of(Material.STONE).strength(4.0f).requiresTool(),
                     UniformIntProvider.create(2, 6)), ModItemGroup.FERO);
+    public static final Block PHANTOM_BOOK_HOLDER = registerBlock("phantom_book_holder",
+            new PhantomBookHolderBlock(FabricBlockSettings.of(Material.METAL).strength(2.0f).nonOpaque()), ModItemGroup.FERO);
 
 
 

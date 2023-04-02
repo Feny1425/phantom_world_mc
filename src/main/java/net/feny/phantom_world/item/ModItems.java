@@ -4,6 +4,7 @@ import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.feny.phantom_world.PhantomWorld;
 import net.feny.phantom_world.entity.ModEntities;
+import net.feny.phantom_world.item.custom.PhantomBookItem;
 import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;

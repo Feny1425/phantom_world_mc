@@ -6,6 +6,7 @@ import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRe
 import net.feny.phantom_world.block.ModBlocks;
 import net.feny.phantom_world.block.ModFlammableBlockRegistry;
 import net.feny.phantom_world.block.ModStrippedBlockRegistry;
+import net.feny.phantom_world.block.entity.ModBlocksEntities;
 import net.feny.phantom_world.entity.ModEntities;
 import net.feny.phantom_world.entity.custom.SmallPhantom;
 import net.feny.phantom_world.item.ModItemGroup;
