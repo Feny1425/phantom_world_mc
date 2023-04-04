@@ -1,4 +1,4 @@
-package net.feny.phantom_world.block.models;
+package net.feny.phantom_world.block.custom;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.block.PillarBlock;

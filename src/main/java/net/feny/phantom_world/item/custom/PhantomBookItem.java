@@ -1,7 +1,7 @@
 package net.feny.phantom_world.item.custom;
 
 import net.feny.phantom_world.block.ModBlocks;
-import net.feny.phantom_world.block.models.PhantomBookHolderBlock;
+import net.feny.phantom_world.block.custom.PhantomBookHolderBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.LivingEntity;
@@ -24,8 +24,9 @@ import net.minecraft.world.World;
 
 public class PhantomBookItem extends Item {
     public static final int TICKS_PER_SECOND = 20;
+    public static final String BOOK_PROGRESS = "book_progress";
     private int bookProgress = 1;
-    private int HIGH_BOOK_PROGRESS = 6;
+    public static final int MAX_BOOK_PROGRESS = 7;
     private Boolean usedOnEntity = false;
     private LivingEntity entity = null;
     public PhantomBookItem(Settings settings) {
@@ -33,7 +34,7 @@ public class PhantomBookItem extends Item {
     }
 
 
-    @Override
+ /*   @Override
     public ActionResult useOnBlock(ItemUsageContext context) {
         BlockPos blockPos;
         ItemStack stack = context.getStack();
@@ -56,11 +57,11 @@ public class PhantomBookItem extends Item {
         world.syncWorldEvent(5000, blockPos, 0);
         return ActionResult.CONSUME;
     }
-
+*/
     @Override
     public ActionResult useOnEntity(ItemStack stack, PlayerEntity user, LivingEntity _entity, Hand hand) {
         if(stack.hasNbt()){
-            bookProgress = stack.getNbt().getInt("book_progress");
+            bookProgress = stack.getNbt().getInt(BOOK_PROGRESS);
         }
         user.sendMessage(Text.of(String.valueOf(bookProgress)),true);
             entity = _entity;
@@ -80,10 +81,9 @@ public class PhantomBookItem extends Item {
     @Override
     public void usageTick(World world, LivingEntity user, ItemStack stack, int remainingUseTicks) {
         if (usedOnEntity){
-            if(getPullProgress(this.getMaxUseTime(stack) - remainingUseTicks) > 0.5){
+            if(getPullProgress(this.getMaxUseTime(stack) - remainingUseTicks) > 0.8){
                 //entity.kill();
                 usedOnEntity = false;
-                entity = null;
             }
         }
         super.usageTick(world, user, stack, remainingUseTicks);
@@ -102,15 +102,15 @@ public class PhantomBookItem extends Item {
     @Override
     public void onStoppedUsing(ItemStack stack, World world, LivingEntity user, int remainingUseTicks) {
         usedOnEntity = false;
-        entity = null;
+        entity = null;/*
         if(stack.hasNbt()) {
             bookProgress = stack.getNbt().getInt("book_progress");
         }
-        if (bookProgress < HIGH_BOOK_PROGRESS)
+        if (bookProgress < MAX_BOOK_PROGRESS)
             bookProgress++;
         NbtCompound nbt = new NbtCompound();
         nbt.putInt("book_progress",bookProgress);
-        stack.setNbt(nbt);
+        stack.setNbt(nbt);*/
         super.onStoppedUsing(stack, world, user, remainingUseTicks);
     }
 

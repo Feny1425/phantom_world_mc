@@ -59,6 +59,9 @@
 			}
 		}
 	],
+	"overrides": [
+		{"predicate": {"open": 1}, "model": "phantom_world:item/phantom_world_starter_opened"}
+	],
 	"display": {
 		"thirdperson_righthand": {
 			"rotation": [2, -51, 1],
@@ -86,6 +89,10 @@
 		"gui": {
 			"rotation": [-30, -59, -21],
 			"translation": [-2, 1.25, 0]
+		},
+		"fixed": {
+			"rotation": [0, 139, 0],
+			"translation": [3, 1.75, 0]
 		}
 	},
 	"groups": [
@@ -95,11 +102,5 @@
 			"color": 0,
 			"children": [0, 1, 2, 3]
 		}
-	],"overrides": [
-	{
-		"predicate": {
-			"open": 1
-		},
-		"model": "phantom_world:item/phantom_world_starter_opened"
-	}]
+	]
 }
