@@ -32,6 +32,9 @@ public class ModBlocks {
     public static final Block PHANTOM_BOOK_HOLDER = registerBlock("phantom_book_holder",
             new PhantomBookHolderBlock(FabricBlockSettings.of(Material.METAL).strength(2.0f).nonOpaque()), ModItemGroup.FERO);
 
+    public static final Block HEART = registerBlockWithoutItem("heart",
+            new Block(FabricBlockSettings.of(Material.WATER).strength(0.5f)), ModItemGroup.FERO);
+
 
 
 
@@ -55,7 +58,9 @@ public class ModBlocks {
     //endregion
 
 
-
+    private static Block registerBlockWithoutItem(String name, Block block, ItemGroup group) {
+        return Registry.register(Registries.BLOCK, new Identifier(PhantomWorld.MOD_ID, name), block);
+    }
 
     private static Block registerBlock(String name, Block block, ItemGroup group) {
         registerBlockItem(name, block, group);

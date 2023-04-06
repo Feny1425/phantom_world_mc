@@ -8,6 +8,7 @@ import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
 import net.minecraft.block.entity.BlockEntityType;
+import net.minecraft.command.argument.ColorArgumentType;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
@@ -19,6 +20,8 @@ import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.DirectionProperty;
 import net.minecraft.state.property.IntProperty;
 import net.minecraft.state.property.Properties;
+import net.minecraft.text.Text;
+import net.minecraft.text.TextColor;
 import net.minecraft.util.*;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
@@ -126,6 +129,7 @@ public class PhantomBookHolderBlock extends BlockWithEntity {
     @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         if (!world.isClient) {
+
             //This will call the createScreenHandlerFactory method from BlockWithEntity, which will return our blockEntity casted to
             //a namedScreenHandlerFactory. If your block class does not extend BlockWithEntity, it needs to implement createScreenHandlerFactory.
             NamedScreenHandlerFactory screenHandlerFactory = state.createScreenHandlerFactory(world, pos);
@@ -139,7 +143,7 @@ public class PhantomBookHolderBlock extends BlockWithEntity {
             else {
                 int selected_page = state.get(SELECTED_PAGE);
                 if (state.get(HAS_BOOK) ){
-                    state = (BlockState)state.with(SELECTED_PAGE,selected_page < MAX_BOOK_PROGRESS-1? selected_page+1:0);
+                    state = (BlockState)state.with(SELECTED_PAGE,selected_page < MAX_BOOK_PROGRESS-2? selected_page+1:0);
                     world.setBlockState(pos, state, Block.NOTIFY_ALL);
                     this.updateNeighbors(state, world, pos);
                 }

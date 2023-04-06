@@ -14,10 +14,12 @@ import net.minecraft.screen.Property;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.screen.slot.Slot;
 import net.minecraft.text.Text;
+import net.minecraft.text.TextColor;
 
 import static net.feny.phantom_world.block.entity.PhantomBookHolderEntity.SLOTS;
 import static net.feny.phantom_world.block.entity.PhantomBookHolderEntity.pageLevel;
 import static net.feny.phantom_world.item.custom.PhantomBookItem.BOOK_PROGRESS;
+import static net.feny.phantom_world.item.custom.PhantomBookItem.MAX_BOOK_PROGRESS;
 
 public class PhantomBookHolderScreenHandler extends ScreenHandler {
     private final Inventory inventory;
@@ -77,9 +79,11 @@ public class PhantomBookHolderScreenHandler extends ScreenHandler {
         book = bookItem.getItem() == ModItems.PHANTOM_WORLD_STARTER;
         if (book && id == 0) {
             int bookProgress = bookItem.hasNbt()? bookItem.getNbt().getInt(BOOK_PROGRESS):0;
-            player.sendMessage(Text.of(String.valueOf(bookProgress)));
 
             if (pageLevel(inventory.getStack(1).getItem()) == bookProgress+1) {
+                if (bookProgress == 6){
+                    player.sendMessage(Text.of( "§4Phantom Book §f: Congrats, you have collected everything you need for this book..."));
+                }
                 NbtCompound nbt = new NbtCompound();
                 nbt.putInt("book_progress",pageLevel(inventory.getStack(1).getItem()));
                 inventory.setStack(1, ItemStack.EMPTY);
@@ -106,7 +110,8 @@ public class PhantomBookHolderScreenHandler extends ScreenHandler {
                     (inventory.getStack(1).getItem() == ModItems.PAGE3&& bookProgress+1 == 3 )||
                     (inventory.getStack(1).getItem() == ModItems.PAGE4&& bookProgress+1 == 4 )||
                     (inventory.getStack(1).getItem() == ModItems.PAGE5&& bookProgress+1 == 5 )||
-                    (inventory.getStack(1).getItem() == ModItems.PAGE6&& bookProgress+1 == 6 );
+                    (inventory.getStack(1).getItem() == ModItems.PAGE6&& bookProgress+1 == 6 )||
+                    (inventory.getStack(1).getItem() == ModItems.PASS&& bookProgress+1 == 7 );
     }
 
     // Shift + Player Inv Slot

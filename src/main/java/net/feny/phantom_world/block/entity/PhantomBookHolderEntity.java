@@ -36,6 +36,7 @@ public class PhantomBookHolderEntity extends BlockEntity implements NamedScreenH
     public static final int SLOTS = 2;
     private final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(SLOTS, ItemStack.EMPTY);
     private static int selected = 1;
+    private static boolean passed = false;
     public float renderRotation = 0;
     public static boolean book = false;
     public float targetBookRotation;
@@ -48,6 +49,7 @@ public class PhantomBookHolderEntity extends BlockEntity implements NamedScreenH
     ItemStack Page4 = ModItems.PAGE4.getDefaultStack();
     ItemStack Page5 = ModItems.PAGE5.getDefaultStack();
     ItemStack Page6 = ModItems.PAGE6.getDefaultStack();
+    ItemStack Page6_PASS = ModItems.PAGE6_PASS.getDefaultStack();
 
     public ItemStack getRenderStack() {
         if(this.getStack(0).isEmpty()) {
@@ -66,8 +68,8 @@ public class PhantomBookHolderEntity extends BlockEntity implements NamedScreenH
                 return this.Page4;
             }else if (selected == 5){
                 return this.Page5;
-            }else{
-                return this.Page6;
+            } {
+                return passed? this.Page6_PASS:Page6;
             }
         }
     }
@@ -178,6 +180,10 @@ public class PhantomBookHolderEntity extends BlockEntity implements NamedScreenH
             world.syncWorldEvent(5000, blockPos, 0);
             if (bookItem.hasNbt()){
                 availablePages = bookItem.getNbt().getInt("book_progress");
+                if (availablePages == 7){
+                    passed = true;
+                }
+                else passed = false;
             }
             else availablePages = 0;
             if (state.get(SELECTED_PAGE) <= availablePages){
@@ -201,6 +207,7 @@ public class PhantomBookHolderEntity extends BlockEntity implements NamedScreenH
         if (stack == ModItems.PAGE4) i = 4;
         if (stack == ModItems.PAGE5) i = 5;
         if (stack == ModItems.PAGE6) i = 6;
+        if (stack == ModItems.PASS) i = 7;
         return i;
     }
 

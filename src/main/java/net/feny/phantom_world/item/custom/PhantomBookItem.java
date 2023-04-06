@@ -26,7 +26,7 @@ public class PhantomBookItem extends Item {
     public static final int TICKS_PER_SECOND = 20;
     public static final String BOOK_PROGRESS = "book_progress";
     private int bookProgress = 1;
-    public static final int MAX_BOOK_PROGRESS = 7;
+    public static final int MAX_BOOK_PROGRESS = 8;
     private Boolean usedOnEntity = false;
     private LivingEntity entity = null;
     public PhantomBookItem(Settings settings) {

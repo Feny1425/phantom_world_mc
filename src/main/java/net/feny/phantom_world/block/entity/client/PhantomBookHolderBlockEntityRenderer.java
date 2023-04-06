@@ -31,7 +31,7 @@ public class PhantomBookHolderBlockEntityRenderer implements BlockEntityRenderer
         ItemStack itemStack = entity.getRenderStack();
         matrices.push();
         matrices.translate(0.5f, 1.3f, 0.5f);
-        float scale = 0.7f;
+        float scale = 0.8f;
         matrices.scale(scale, scale, scale);
         matrices.multiply(RotationAxis.POSITIVE_X.rotation(0));
         float h;
