@@ -1,0 +1,52 @@
+{
+	"credit": "Made with Blockbench",
+	"textures": {
+		"1": "phantom_world:block/fero_block",
+		"particle": "phantom_world:block/blood"
+	},
+	"elements": [
+		{
+			"from": [0, 0, 0],
+			"to": [16, 0.1, 16],
+			"rotation": {"angle": 0, "axis": "y", "origin": [0, 0, 8]},
+			"faces": {
+				"north": {"uv": [0, 16, 16, 16], "texture": "#1"},
+				"east": {"uv": [-16, 16, 0, 16], "texture": "#1"},
+				"south": {"uv": [32, 16, 48, 16], "texture": "#1"},
+				"west": {"uv": [16, 16, 32, 16], "texture": "#1"},
+				"up": {"uv": [0, 0, 16, 16], "texture": "#1"},
+				"down": {"uv": [0, 0, 16, 16], "texture": "#1"}
+			}
+		}
+	],
+	"display": {
+		"thirdperson_righthand": {
+			"translation": [0, 1.75, 0],
+			"scale": [0.2, 0.2, 0.2]
+		},
+		"thirdperson_lefthand": {
+			"translation": [0, 1.75, 0],
+			"scale": [0.2, 0.2, 0.2]
+		},
+		"firstperson_righthand": {
+			"rotation": [72, 0, 0],
+			"translation": [10, 0.5, 0]
+		},
+		"firstperson_lefthand": {
+			"rotation": [74, 0, 0],
+			"translation": [12, 0, 0]
+		},
+		"ground": {
+			"translation": [0, 3.25, 0],
+			"scale": [0.5, 0.5, 0.5]
+		},
+		"gui": {
+			"rotation": [90, 0, 0],
+			"scale": [0.9, 0.9, 0.9]
+		},
+		"fixed": {
+			"rotation": [90, 0, 0],
+			"translation": [0, 0, 8.5]
+		}
+	}
+}

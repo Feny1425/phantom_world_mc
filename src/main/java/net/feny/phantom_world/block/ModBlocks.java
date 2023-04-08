@@ -5,6 +5,8 @@ import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.feny.phantom_world.PhantomWorld;
+import net.feny.phantom_world.block.custom.BloodBlock;
+import net.feny.phantom_world.block.custom.FeroSheetBlock;
 import net.feny.phantom_world.block.custom.PhantomBookHolderBlock;
 import net.feny.phantom_world.block.custom.PillarBlockWithParticles;
 import net.feny.phantom_world.item.ModItemGroup;
@@ -16,6 +18,7 @@ import net.minecraft.item.ItemGroup;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
+import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.intprovider.UniformIntProvider;
 
@@ -32,8 +35,11 @@ public class ModBlocks {
     public static final Block PHANTOM_BOOK_HOLDER = registerBlock("phantom_book_holder",
             new PhantomBookHolderBlock(FabricBlockSettings.of(Material.METAL).strength(2.0f).nonOpaque()), ModItemGroup.FERO);
 
-    public static final Block HEART = registerBlockWithoutItem("heart",
-            new Block(FabricBlockSettings.of(Material.WATER).strength(0.5f)), ModItemGroup.FERO);
+    public static final Block BLOOD = registerBlockWithoutItem("blood",
+            new BloodBlock(FabricBlockSettings.of(Material.WATER).velocityMultiplier(0.4f).jumpVelocityMultiplier(0.5f).nonOpaque().sounds(BlockSoundGroup.HONEY).breakInstantly()));
+
+    public static final Block FERO_SHEET = registerBlock("fero_sheet",
+            new FeroSheetBlock(FabricBlockSettings.of(Material.WATER).noCollision().breakInstantly()),ModItemGroup.FERO);
 
 
 
@@ -58,7 +64,7 @@ public class ModBlocks {
     //endregion
 
 
-    private static Block registerBlockWithoutItem(String name, Block block, ItemGroup group) {
+    private static Block registerBlockWithoutItem(String name, Block block) {
         return Registry.register(Registries.BLOCK, new Identifier(PhantomWorld.MOD_ID, name), block);
     }
 

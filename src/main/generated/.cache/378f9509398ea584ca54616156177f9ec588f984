@@ -1,11 +1,12 @@
-// 1.19.4	2023-04-02T18:05:55.6583172	Tutorial Mod/Block Loot Tables
+// 1.19.4	2023-04-06T15:41:31.7775835	Tutorial Mod/Block Loot Tables
 36fe31140e57654159a1dae3e9c6a1bcbfb0855e data\phantom_world\loot_tables\blocks\phantom_sapling.json
+e2de77d0580f418d5887762d7d353a37c66f69b8 data\phantom_world\loot_tables\blocks\fero_sheet.json
 a4fd7d53c0e0b503c7243cb1c2ccaa01fde8db00 data\phantom_world\loot_tables\blocks\phantom_wood.json
 b7d7a621f9e8bdae6c13d3eb91b8a8460d0967e2 data\phantom_world\loot_tables\blocks\stripped_phantom_log.json
 6da6f9cd937e324ad9b80e69c403d232631f7be6 data\phantom_world\loot_tables\blocks\phantom_log.json
+c9c319ddca9fc320b6b32ce7d97ba33bd447f323 data\phantom_world\loot_tables\blocks\phantom_book_holder.json
 5efea50e3a8118dfd7f8b143f5203aa448174a9a data\phantom_world\loot_tables\blocks\stripped_phantom_wood.json
 89535ba8726d287b2b3bf372650c86ea1f26657f data\phantom_world\loot_tables\blocks\phantom_planks.json
-c9c319ddca9fc320b6b32ce7d97ba33bd447f323 data\phantom_world\loot_tables\blocks\phantom_book_holder.json
 592a55d399995ea846f6ac3afcaab5a26e0ea127 data\phantom_world\loot_tables\blocks\deepslate_fero_ore.json
 8f657a2fb2fed957b2e1362683ef269104622889 data\phantom_world\loot_tables\blocks\fero_ore.json
 bf29c0fb637a8234ab106a42ee0918af3472c51a data\phantom_world\loot_tables\blocks\fero_block.json

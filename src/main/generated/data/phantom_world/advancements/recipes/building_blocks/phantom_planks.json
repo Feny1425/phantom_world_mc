@@ -27,7 +27,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:phantom_planks"
+        "recipe": "phantom_world:phantom_planks"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -41,7 +41,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:phantom_planks"
+      "phantom_world:phantom_planks"
     ]
   }
 }

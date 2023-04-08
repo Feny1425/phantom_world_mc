@@ -21,6 +21,7 @@ public class PhantomWorldClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.PHANTOM_LEAVES, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.BLOOD, RenderLayer.getTranslucent());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.PHANTOM_SAPLING, RenderLayer.getCutout());
 
         EntityRendererRegistry.register(ModEntities.SMALL_PHANTOM_ENTITY_TYPE, SmallPhantomRenderer::new);

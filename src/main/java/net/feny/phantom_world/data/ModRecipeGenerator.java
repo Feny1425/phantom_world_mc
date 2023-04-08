@@ -31,6 +31,24 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                 ModBlocks.FERO_BLOCK);
 
 
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.PHANTOM_WORLD_STARTER,1)
+                .pattern("DDD")
+                .pattern("SBS")
+                .pattern("SSS")
+                .input('S', ModItems.FERO)
+                .input('D', ModBlocks.FERO_BLOCK)
+                .input('B', Items.BOOK)
+                .criterion(FabricRecipeProvider.hasItem(ModItems.PHANTOM_STARTER_RECIPE),
+                        FabricRecipeProvider.conditionsFromItem(ModItems.PHANTOM_STARTER_RECIPE))
+                .offerTo(exporter, new Identifier(PhantomWorld.MOD_ID,FabricRecipeProvider.getRecipeName(ModItems.PHANTOM_STARTER_RECIPE)));
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModBlocks.FERO_SHEET,3)
+                .pattern("DDD")
+                .input('D', ModItems.FERO)
+                .criterion(FabricRecipeProvider.hasItem(ModItems.FERO),
+                        FabricRecipeProvider.conditionsFromItem(ModItems.FERO))
+                .offerTo(exporter, new Identifier(PhantomWorld.MOD_ID,FabricRecipeProvider.getRecipeName(ModBlocks.FERO_SHEET)));
+
         phantom(exporter);
     }
 
@@ -41,25 +59,15 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                 .input('S', ModBlocks.PHANTOM_LOG)
                 .criterion(FabricRecipeProvider.hasItem(ModBlocks.PHANTOM_LOG),
                         FabricRecipeProvider.conditionsFromItem(ModBlocks.PHANTOM_LOG))
-                .offerTo(exporter, new Identifier(FabricRecipeProvider.getRecipeName(ModBlocks.PHANTOM_WOOD)));
+                .offerTo(exporter, new Identifier(PhantomWorld.MOD_ID,FabricRecipeProvider.getRecipeName(ModBlocks.PHANTOM_WOOD)));
+
         ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, ModBlocks.STRIPPED_PHANTOM_WOOD,3)
                 .pattern("SS")
                 .pattern("SS")
                 .input('S', ModBlocks.STRIPPED_PHANTOM_LOG)
                 .criterion(FabricRecipeProvider.hasItem(ModBlocks.STRIPPED_PHANTOM_LOG),
                         FabricRecipeProvider.conditionsFromItem(ModBlocks.STRIPPED_PHANTOM_LOG))
-                .offerTo(exporter, new Identifier(FabricRecipeProvider.getRecipeName(ModBlocks.STRIPPED_PHANTOM_WOOD)));
-
-        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.PHANTOM_WORLD_STARTER,1)
-                .pattern("DDD")
-                .pattern("SBS")
-                .pattern("SSS")
-                .input('S', ModItems.FERO)
-                .input('D', ModBlocks.FERO_BLOCK)
-                .input('B', Items.BOOK)
-                .criterion(FabricRecipeProvider.hasItem(ModItems.PHANTOM_STARTER_RECIPE),
-                        FabricRecipeProvider.conditionsFromItem(ModItems.PHANTOM_STARTER_RECIPE))
-                .offerTo(exporter, new Identifier(FabricRecipeProvider.getRecipeName(ModItems.PHANTOM_STARTER_RECIPE)));
+                .offerTo(exporter, new Identifier(PhantomWorld.MOD_ID,FabricRecipeProvider.getRecipeName(ModBlocks.STRIPPED_PHANTOM_WOOD)));
 
         ShapelessRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS,ModBlocks.PHANTOM_PLANKS,4)
                 .input(ModBlockTags.PHANTOM_LOGS)
@@ -67,6 +75,6 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                         FabricRecipeProvider.conditionsFromItem(ModBlocks.PHANTOM_LOG))
                 .criterion(FabricRecipeProvider.hasItem(ModBlocks.STRIPPED_PHANTOM_LOG),
                         FabricRecipeProvider.conditionsFromItem(ModBlocks.STRIPPED_PHANTOM_LOG))
-                .offerTo(exporter,new Identifier(FabricRecipeProvider.getRecipeName(ModBlocks.PHANTOM_PLANKS)));
+                .offerTo(exporter,new Identifier(PhantomWorld.MOD_ID,FabricRecipeProvider.getRecipeName(ModBlocks.PHANTOM_PLANKS)));
     }
 }

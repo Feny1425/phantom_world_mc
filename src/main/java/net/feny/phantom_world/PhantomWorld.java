@@ -2,31 +2,21 @@ package net.feny.phantom_world;
 
 import net.fabricmc.api.ModInitializer;
 
-import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
-import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
-import net.fabricmc.fabric.api.screenhandler.v1.ScreenHandlerRegistry;
 import net.feny.phantom_world.block.ModBlocks;
 import net.feny.phantom_world.block.ModFlammableBlockRegistry;
 import net.feny.phantom_world.block.ModStrippedBlockRegistry;
-import net.feny.phantom_world.block.custom.PhantomBookHolderBlock;
 import net.feny.phantom_world.block.entity.ModBlockEntities;
-import net.feny.phantom_world.block.entity.PhantomBookHolderEntity;
 import net.feny.phantom_world.entity.ModEntities;
 import net.feny.phantom_world.entity.custom.SmallPhantom;
 import net.feny.phantom_world.item.ModItemGroup;
 import net.feny.phantom_world.item.ModItems;
 import net.feny.phantom_world.networking.ModMessages;
-import net.feny.phantom_world.screen.PhantomBookHolderScreenHandler;
 import net.feny.phantom_world.world.dimension.ModDimensions;
 import net.feny.phantom_world.world.gen.ModWorldGeneration;
-import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.Material;
-import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
-import net.minecraft.screen.ScreenHandlerType;
+import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.Identifier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -38,8 +28,15 @@ public class PhantomWorld implements ModInitializer {
 
 
 
+	public static final Identifier EARTHQUAKE_ID = new Identifier(MOD_ID,"earthquake");
+	public static SoundEvent EARTHQUAKE_EVENT = SoundEvent.of(EARTHQUAKE_ID);
+	public static final Identifier HUM_ID = new Identifier(MOD_ID,"hum");
+	public static SoundEvent HUM_EVENT = SoundEvent.of(HUM_ID);
 	@Override
 	public void onInitialize() {
+		Registry.register(Registries.SOUND_EVENT, PhantomWorld.EARTHQUAKE_ID, EARTHQUAKE_EVENT);
+		Registry.register(Registries.SOUND_EVENT, PhantomWorld.HUM_ID, HUM_EVENT);
+
 		ModItemGroup.registerItemGroups();
 		ModItems.registerModItems();
 		ModBlocks.registerModBlocks();

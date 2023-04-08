@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "D": {
+      "item": "phantom_world:fero_block"
+    }
+  },
+  "pattern": [
+    "DDD"
+  ],
+  "result": {
+    "item": "phantom_world:fero_sheet"
+  },
+  "show_notification": true
+}

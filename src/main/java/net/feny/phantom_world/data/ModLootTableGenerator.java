@@ -20,6 +20,7 @@ public class ModLootTableGenerator extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.STRIPPED_PHANTOM_LOG);
         addDrop(ModBlocks.STRIPPED_PHANTOM_WOOD);
         addDrop(ModBlocks.PHANTOM_BOOK_HOLDER);
+        addDrop(ModBlocks.FERO_SHEET);
 
         addDrop(ModBlocks.FERO_ORE, oreDrops(ModBlocks.FERO_ORE, ModItems.RAW_FERO));
         addDrop(ModBlocks.DEEPSLATE_FERO_ORE, oreDrops(ModBlocks.DEEPSLATE_FERO_ORE, ModItems.RAW_FERO));

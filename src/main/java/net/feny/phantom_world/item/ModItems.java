@@ -24,7 +24,7 @@ public class ModItems {
             new SpawnEggItem(ModEntities.SMALL_PHANTOM_ENTITY_TYPE,0xc6fdfe, 0x000000, new FabricItemSettings()));
 
     public static final Item HEART = Registry.register(Registries.ITEM, new Identifier(PhantomWorld.MOD_ID, "heart"),
-            new HeartItem(ModBlocks.HEART, new FabricItemSettings().maxDamage(44)));
+            new HeartItem(ModBlocks.BLOOD, new FabricItemSettings().maxDamage(44)));
 
 
     /** phantom book*/

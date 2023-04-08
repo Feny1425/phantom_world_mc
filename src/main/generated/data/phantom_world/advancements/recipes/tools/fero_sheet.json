@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_phantom_log": {
+    "has_fero_block": {
       "conditions": {
         "items": [
           {
             "items": [
-              "phantom_world:phantom_log"
+              "phantom_world:fero_block"
             ]
           }
         ]
@@ -15,20 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "phantom_world:phantom_wood"
+        "recipe": "phantom_world:fero_sheet"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_phantom_log",
+      "has_fero_block",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "phantom_world:phantom_wood"
+      "phantom_world:fero_sheet"
     ]
   }
 }

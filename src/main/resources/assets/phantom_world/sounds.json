@@ -1,0 +1,15 @@
+{
+  "earthquake": {
+    "subtitle": "phantom_world.earthquake",
+    "sounds": [
+      "phantom_world:earthquake"
+    ]
+  },
+  "hum": {
+    "subtitle": "phantom_world.earthquake",
+    "sounds": [
+      "phantom_world:hum"
+    ]
+  }
+}
+

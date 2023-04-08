@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:phantom_starter_recipe"
+        "recipe": "phantom_world:phantom_starter_recipe"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:phantom_starter_recipe"
+      "phantom_world:phantom_starter_recipe"
     ]
   }
 }

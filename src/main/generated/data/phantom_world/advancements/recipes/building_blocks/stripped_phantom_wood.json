@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:stripped_phantom_wood"
+        "recipe": "phantom_world:stripped_phantom_wood"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:stripped_phantom_wood"
+      "phantom_world:stripped_phantom_wood"
     ]
   }
 }
