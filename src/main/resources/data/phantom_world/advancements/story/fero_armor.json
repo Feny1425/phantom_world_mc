@@ -1,0 +1,71 @@
+{
+  "display": {
+    "icon": {
+      "item": "phantom_world:fero_chestplate",
+      "nbt": "{Damage:0}"
+    },
+    "title": {
+      "translate": "advancements.story.obtain_fero_armor.title"
+    },
+    "description": {"translate":"advancements.story.obtain_fero_armor.description"}
+  },
+  "parent": "phantom_world:story/fero",
+  "criteria": {
+    "fero_boots": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "phantom_world:fero_boots"
+            ]
+          }
+        ]
+      }
+    },
+    "fero_chestplate": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "phantom_world:fero_chestplate"
+            ]
+          }
+        ]
+      }
+    },
+    "fero_helmet": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "phantom_world:fero_helmet"
+            ]
+          }
+        ]
+      }
+    },
+    "fero_leggings": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "phantom_world:fero_leggings"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "fero_helmet",
+      "fero_chestplate",
+      "fero_leggings",
+      "fero_boots"
+    ]
+  ]
+}

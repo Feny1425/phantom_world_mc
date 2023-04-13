@@ -6,7 +6,6 @@ import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.feny.phantom_world.item.ModItems;
 import net.feny.phantom_world.networking.ModMessages;
 import net.feny.phantom_world.screen.PhantomBookHolderScreenHandler;
-import net.feny.phantom_world.screen.ScreenHandlers;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -29,8 +28,6 @@ import net.minecraft.world.World;
 import static net.feny.phantom_world.block.custom.PhantomBookHolderBlock.HAS_BOOK;
 import static net.feny.phantom_world.block.custom.PhantomBookHolderBlock.SELECTED_PAGE;
 import static net.feny.phantom_world.block.entity.ModBlockEntities.PHANTOM_BOOK_HOLDER_ENTITY;
-import static net.feny.phantom_world.item.custom.PhantomBookItem.BOOK_PROGRESS;
-import static net.feny.phantom_world.item.custom.PhantomBookItem.MAX_BOOK_PROGRESS;
 
 public class PhantomBookHolderEntity extends BlockEntity implements NamedScreenHandlerFactory, ImplementedInventory {
     public static final int SLOTS = 2;
@@ -42,6 +39,10 @@ public class PhantomBookHolderEntity extends BlockEntity implements NamedScreenH
     public float targetBookRotation;
     public float lastBookRotation;
     public int ticks;
+    public static int availablePages = 0;
+    public int getAvailablePages(){
+        return availablePages;
+    }
     ItemStack Page0 = ModItems.PAGE0.getDefaultStack();
     ItemStack Page1 = ModItems.PAGE1.getDefaultStack();
     ItemStack Page2 = ModItems.PAGE2.getDefaultStack();
@@ -143,7 +144,6 @@ public class PhantomBookHolderEntity extends BlockEntity implements NamedScreenH
 
     public static void tick(World world, BlockPos blockPos, BlockState state, PhantomBookHolderEntity entity) {
         float g;
-        int availablePages ;
 
         entity.lastBookRotation = entity.renderRotation;
         PlayerEntity playerEntity = world.getClosestPlayer((double)blockPos.getX() + 0.5, (double)blockPos.getY() + 0.5, (double)blockPos.getZ() + 0.5, 3.0, false);

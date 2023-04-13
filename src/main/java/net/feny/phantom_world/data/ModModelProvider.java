@@ -16,9 +16,14 @@ public class ModModelProvider extends FabricModelProvider {
 
     @Override
     public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGenerator) {
+
         blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.FERO_BLOCK);
         blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.FERO_ORE);
         blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.DEEPSLATE_FERO_ORE);
+
+        blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.PHANTOM_BRICKS);
+
+        blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.PHANTOM_BRICKS_UNBREAKABLE);
 
         //region phantom tree
         blockStateModelGenerator.registerLog(ModBlocks.STRIPPED_PHANTOM_LOG).log(ModBlocks.STRIPPED_PHANTOM_LOG).wood(ModBlocks.STRIPPED_PHANTOM_WOOD);

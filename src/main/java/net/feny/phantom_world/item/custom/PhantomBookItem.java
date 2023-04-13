@@ -2,11 +2,13 @@ package net.feny.phantom_world.item.custom;
 
 import net.feny.phantom_world.PhantomWorld;
 import net.feny.phantom_world.block.ModBlocks;
+import net.feny.phantom_world.item.client.PhantomBookItemRenderer;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.pattern.BlockPattern;
 import net.minecraft.block.pattern.BlockPatternBuilder;
 import net.minecraft.block.pattern.CachedBlockPosition;
+import net.minecraft.client.render.item.BuiltinModelItemRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LightningEntity;
@@ -21,7 +23,6 @@ import net.minecraft.particle.ParticleTypes;
 import net.minecraft.predicate.block.BlockStatePredicate;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
-import net.minecraft.text.Text;
 import net.minecraft.util.*;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.hit.HitResult;
@@ -30,12 +31,22 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.world.RaycastContext;
 import net.minecraft.world.World;
+import software.bernie.geckolib.animatable.GeoItem;
+import software.bernie.geckolib.animatable.client.RenderProvider;
+import software.bernie.geckolib.core.animatable.GeoAnimatable;
+import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
+import software.bernie.geckolib.core.animatable.instance.SingletonAnimatableInstanceCache;
+import software.bernie.geckolib.core.animation.*;
+import software.bernie.geckolib.core.object.PlayState;
+import software.bernie.geckolib.util.RenderUtils;
 
-public class PhantomBookItem extends Item {
-    public static final int TICKS_PER_SECOND = 20;
+import java.util.function.Consumer;
+import java.util.function.Supplier;
+
+public class PhantomBookItem extends Item implements GeoItem {
     public static final String BOOK_PROGRESS = "book_progress";
-    private int bookProgress = 1;
-    public static final int MAX_BOOK_PROGRESS = 8;
+    public static final int MAX_BOOK_PROGRESS = 7;
+    private static String ID = null;
     private Boolean usedOnEntity = false;
     private Boolean usedOnBlock = false;
     private ItemUsageContext context;
@@ -48,36 +59,11 @@ public class PhantomBookItem extends Item {
     }
 
 
- /*   @Override
-    public ActionResult useOnBlock(ItemUsageContext context) {
-        BlockPos blockPos;
-        ItemStack stack = context.getStack();
-        World world = context.getWorld();
-        BlockState blockState = world.getBlockState(blockPos = context.getBlockPos());
-        if (!blockState.isOf(ModBlocks.PHANTOM_BOOK_HOLDER) || blockState.get(PhantomBookHolderBlock.HAS_BOOK).booleanValue()) {
-            return ActionResult.PASS;
-        }
-        if (world.isClient) {
-            return ActionResult.SUCCESS;
-        }
-        if(stack.hasNbt()){
-            bookProgress = stack.getNbt().getInt("book_progress");
-        }
-        BlockState blockState2 = (BlockState)blockState.with(PhantomBookHolderBlock.HAS_BOOK, true).with(PhantomBookHolderBlock.BOOK_PROGRESS, bookProgress);
-        Block.pushEntitiesUpBeforeBlockChange(blockState, blockState2, world, blockPos);
-        world.setBlockState(blockPos, blockState2, Block.NOTIFY_LISTENERS);
-        world.updateComparators(blockPos, ModBlocks.PHANTOM_BOOK_HOLDER);
-        context.getStack().decrement(1);
-        world.syncWorldEvent(5000, blockPos, 0);
-        return ActionResult.CONSUME;
-    }
-*/
-    @Override
+ @Override
     public ActionResult useOnEntity(ItemStack stack, PlayerEntity user, LivingEntity _entity, Hand hand) {
         if(stack.hasNbt()){
-            bookProgress = stack.getNbt().getInt(BOOK_PROGRESS);
+            //bookProgress = stack.getNbt().getInt(BOOK_PROGRESS);
         }
-        user.sendMessage(Text.of(String.valueOf(bookProgress)),true);
             entity = _entity;
             usedOnEntity = true;
 
@@ -105,19 +91,20 @@ public class PhantomBookItem extends Item {
     //      /clone 83 -61 77 75 -60 85 87 -60 40
     @Override
     public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
+        int start = 380;
         if (startEarthquake && center != null){
             tick++;
-            if (tick < 370) {
+            if (tick < start+5) {
                 openCenter(world,center,1,1);
-            } else if (tick < 375) {
+            } else if (tick < start +7) {
                 openCenter(world,center,1,2);
                 openCenter(world,center,2,1);
-            }else if (tick < 380) {
+            }else if (tick < start+10) {
+                openCenter(world,center,1, 4);
                 openCenter(world,center,1, 3);
                 openCenter(world,center,2, 2);
                 openCenter(world,center,3, 1);
-            }else if (tick < 420) {
-                openThePortal(world,center);
+            }else if (tick < start+14) {
                 startEarthquake = false;
                 tick = 0;
             }
@@ -130,31 +117,38 @@ public class PhantomBookItem extends Item {
         super.inventoryTick(stack, world, entity, slot, selected);
     }
 
-    private void openThePortal(World world, BlockPos center) {
-    }
 
     private void openCenter(World world, BlockPos blockPos, int i, int i1) {
         BlockPos pos = blockPos;
         for (int k = 1; k < i; k++){
             pos = pos.down();
         }
-        setTwoBlocksAir(world, pos.add(i1, 0, 0));
-        setTwoBlocksAir(world, pos.add(-i1, 0, 0));
-        setTwoBlocksAir(world, pos.add(0, 0, i1));
-        setTwoBlocksAir(world, pos.add(0, 0, -i1));
+        setTwoBlocksAir(world, pos.add(i1, i1==4?1:0, 0));
+        setTwoBlocksAir(world, pos.add(-i1, i1==4?1:0, 0));
+        setTwoBlocksAir(world, pos.add(0, i1==4?1:0, i1));
+        setTwoBlocksAir(world, pos.add(0, i1==4?1:0, -i1));
+        if (i1<4){
+            setTwoBlocksAir(world, pos.add((i1-1), (i1-2), (i1-1)));
+            setTwoBlocksAir(world, pos.add(-(i1-1), (i1-2), (i1-1)));
+            setTwoBlocksAir(world, pos.add((i1-1), (i1-2), -(i1-1)));
+            setTwoBlocksAir(world, pos.add(-(i1-1), (i1-2), -(i1-1)));
+            setTwoBlocksAir(world, pos.add((i1-1), (i1-2), (i1-1)));
+            setTwoBlocksAir(world, pos.add(-(i1-1), (i1-2), (i1-1)));
+            setTwoBlocksAir(world, pos.add((i1-1), (i1-2), -(i1-1)));
+            setTwoBlocksAir(world, pos.add(-(i1-1), (i1-2), -(i1-1)));
+        }
         switch (i1) {
             case 1:
                 setTwoBlocksAir(world, pos);
+                if (i == 3){
+                    setPortal(world, pos);
+                    setPortal(world, pos.add(1, 0, 0));
+                    setPortal(world, pos.add(-1, 0, 0));
+                    setPortal(world, pos.add(0, 0, 1));
+                    setPortal(world, pos.add(0, 0, -1));
+                }
                 break;
             case 2:
-                setTwoBlocksAir(world, pos.add(1, 0, 1));
-                setTwoBlocksAir(world, pos.add(-1, 0, 1));
-                setTwoBlocksAir(world, pos.add(1, 0, -1));
-                setTwoBlocksAir(world, pos.add(-1, 0, -1));
-                setTwoBlocksAir(world, pos.add(1, 0, 1));
-                setTwoBlocksAir(world, pos.add(-1, 0, 1));
-                setTwoBlocksAir(world, pos.add(1, 0, -1));
-                setTwoBlocksAir(world, pos.add(-1, 0, -1));
                 break;
             case 3:
                 setTwoBlocksAir(world, pos.add(2, 0, 1));
@@ -166,14 +160,29 @@ public class PhantomBookItem extends Item {
                 setTwoBlocksAir(world, pos.add(1, 0, -2));
                 setTwoBlocksAir(world, pos.add(-1, 0, -2));
                 break;
+            case 4:
+                setTwoBlocksAir(world, pos.add(1, 1, 3));
+                setTwoBlocksAir(world, pos.add(-1, 1, 3));
+                setTwoBlocksAir(world, pos.add(1, 1, -3));
+                setTwoBlocksAir(world, pos.add(-1, 1, -3));
+                setTwoBlocksAir(world, pos.add(3, 1, -1));
+                setTwoBlocksAir(world, pos.add(3, 1, 1));
+                setTwoBlocksAir(world, pos.add(-3, 1, -1));
+                setTwoBlocksAir(world, pos.add(-3, 1, 1));
+
+
 
         }
     }
 
     private void setTwoBlocksAir(World world,BlockPos pos){
-        world.setBlockState(pos.down().down(), Blocks.MAGMA_BLOCK.getDefaultState(), Block.NOTIFY_LISTENERS);
+        world.setBlockState(pos.down().down(), ModBlocks.PHANTOM_MAGMA.getDefaultState(), Block.NOTIFY_LISTENERS);
         world.removeBlock(pos,true);
         world.removeBlock(pos.down(),true);
+
+    }
+    private void setPortal(World world,BlockPos pos){
+        world.setBlockState(pos.down(), ModBlocks.PHANTOM_PORTAL.getDefaultState(), Block.NOTIFY_LISTENERS);
 
     }
 
@@ -183,19 +192,19 @@ public class PhantomBookItem extends Item {
 
         }
 
-        if (usedOnBlock && context != null)
-            if (context.getWorld().getBlockState(context.getBlockPos()).getBlock() == ModBlocks.FERO_SHEET) {
-                if (result != null && !startEarthquake) {
+        if (usedOnBlock && context != null && stack.hasNbt())
+            if (context.getWorld().getBlockState(context.getBlockPos()).getBlock() == ModBlocks.FERO_SHEET && stack.getNbt().getInt(BOOK_PROGRESS) == MAX_BOOK_PROGRESS) {
+                if (result != null && tick < 365) {
                     tick++;
-                    LightningEntity lightningEntity = (LightningEntity) EntityType.LIGHTNING_BOLT.create(world);
+
                     if (360 > tick && (tick %40 == 0||tick < 10)) {
                         world.playSound(
                                 null, // Player - if non-null, will play sound for every nearby player *except* the specified player
-                                (center = result.getFrontTopLeft().add(-4,0,-4)).down(), // The position of where the sound will come from
+                                (center = result.getFrontTopLeft().add(-4,0,-4)), // The position of where the sound will come from
                                 PhantomWorld.HUM_EVENT, // The sound that will play
                                 SoundCategory.BLOCKS, // This determines which of the volume sliders affect this sound
-                                tick/360.0f, //Volume multiplier, 1 is normal, 0.5 is half volume, etc
-                                0.7f // Pitch multiplier, 1 is normal, 0.5 is half pitch, etc
+                                tick/300f, //Volume multiplier, 1 is normal, 0.5 is half volume, etc
+                                1f // Pitch multiplier, 1 is normal, 0.5 is half pitch, etc
                         );
                     }
                     if (120 > tick && tick > 10) {
@@ -221,31 +230,18 @@ public class PhantomBookItem extends Item {
                     }
                     else if (360 < tick) {
                         if (!world.isClient && !startEarthquake) {
-                            lightningEntity.refreshPositionAfterTeleport(Vec3d.ofBottomCenter(result.getFrontTopLeft().add(0,0,-4)));
-                            world.spawnEntity(lightningEntity);
-                            lightningEntity.refreshPositionAfterTeleport(Vec3d.ofBottomCenter(result.getFrontTopLeft().add(-4,0,0)));
-                            world.spawnEntity(lightningEntity);
-                            lightningEntity.refreshPositionAfterTeleport(Vec3d.ofBottomCenter(result.getFrontTopLeft().add(-8,0,-4)));
-                            world.spawnEntity(lightningEntity);
-                            lightningEntity.refreshPositionAfterTeleport(Vec3d.ofBottomCenter(result.getFrontTopLeft().add(-4,0,-8)));
-                            world.spawnEntity(lightningEntity);
-                            lightningEntity.refreshPositionAfterTeleport(Vec3d.ofBottomCenter(result.getFrontTopLeft().add(-1,0,-1)));
-                            world.spawnEntity(lightningEntity);
-                            lightningEntity.refreshPositionAfterTeleport(Vec3d.ofBottomCenter(result.getFrontTopLeft().add(-1,0,-7)));
-                            world.spawnEntity(lightningEntity);
-                            lightningEntity.refreshPositionAfterTeleport(Vec3d.ofBottomCenter(result.getFrontTopLeft().add(-7,0,-1)));
-                            world.spawnEntity(lightningEntity);
-                            lightningEntity.refreshPositionAfterTeleport(Vec3d.ofBottomCenter(result.getFrontTopLeft().add(-7,0,-7)));
-                            world.spawnEntity(lightningEntity);
                             startEarthquake = true;
                             world.playSound(
                                     null, // Player - if non-null, will play sound for every nearby player *except* the specified player
-                                    result.getFrontTopLeft().add(-4,0,-4).down(), // The position of where the sound will come from
+                                    result.getFrontTopLeft().add(-4,0,-4), // The position of where the sound will come from
                                     PhantomWorld.EARTHQUAKE_EVENT, // The sound that will play
                                     SoundCategory.BLOCKS, // This determines which of the volume sliders affect this sound
                                     5f, //Volume multiplier, 1 is normal, 0.5 is half volume, etc
                                     1f // Pitch multiplier, 1 is normal, 0.5 is half pitch, etc
                             );
+                            LightningEntity lightningEntity = (LightningEntity) EntityType.LIGHTNING_BOLT.create(world);
+                            lightningEntity.refreshPositionAfterTeleport(Vec3d.ofBottomCenter(center.down(4)));
+                            world.spawnEntity(lightningEntity);
                         }
                     }
                 }
@@ -287,27 +283,18 @@ public class PhantomBookItem extends Item {
         entity = null;
         result= null;
         tick = 0;
+        ((PhantomBookItem)stack.getItem()).isUsing =false;
 
-        /*
-        if(stack.hasNbt()) {
-            bookProgress = stack.getNbt().getInt("book_progress");
-        }
-        if (bookProgress < MAX_BOOK_PROGRESS)
-            bookProgress++;
-        NbtCompound nbt = new NbtCompound();
-        nbt.putInt("book_progress",bookProgress);
-        stack.setNbt(nbt);*/
         super.onStoppedUsing(stack, world, user, remainingUseTicks);
     }
 
-    @Override
-    public UseAction getUseAction(ItemStack stack) {
-        return UseAction.NONE;
-    }
+
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
         ServerWorld serverWorld;
         BlockPos blockPos;
+        ((PhantomBookItem)user.getStackInHand(hand).getItem()).isUsing =true;
+
         ItemStack itemStack = user.getStackInHand(hand);
         BlockHitResult hitResult = EnderEyeItem.raycast(world, user, RaycastContext.FluidHandling.NONE);
         if (((HitResult)hitResult).getType() == HitResult.Type.BLOCK && world.getBlockState(hitResult.getBlockPos()).isOf(ModBlocks.PHANTOM_BOOK_HOLDER)) {
@@ -318,6 +305,17 @@ public class PhantomBookItem extends Item {
     }
 
     @Override
+    public UseAction getUseAction(ItemStack stack) {
+        return super.getUseAction(stack);
+    }
+
+    @Override
+    public boolean shouldPlayAnimsWhileGamePaused() {
+        return false;
+    }
+
+
+    @Override
     public boolean hasGlint(ItemStack stack) {
         return stack.hasNbt();
     }
@@ -326,7 +324,7 @@ public class PhantomBookItem extends Item {
     public static BlockPattern getCompletedFramePattern() {
         if (COMPLETED_DRAW == null) {
             COMPLETED_DRAW = BlockPatternBuilder.start().aisle(
-                    "???v?v???",
+                    "A??v?v??A",
                             "?v?vvv?v?",
                             "????v????",
                             "vv?v?v?vv",
@@ -334,12 +332,62 @@ public class PhantomBookItem extends Item {
                             "vv?v?v?vv",
                             "????v????",
                             "?v?vvv?v?",
-                            "???v?v???")
+                            "A??v?v??A")
                     .where('?', CachedBlockPosition.matchesBlockState(BlockStatePredicate.forBlock(Blocks.AIR)))
                     .where('^', CachedBlockPosition.matchesBlockState(BlockStatePredicate.forBlock(ModBlocks.FERO_SHEET)))
                     .where('v', CachedBlockPosition.matchesBlockState(BlockStatePredicate.forBlock(ModBlocks.BLOOD)))
+                    .where('A', CachedBlockPosition.matchesBlockState(BlockStatePredicate.ANY))
                     .build();
         }
         return COMPLETED_DRAW;
+    }
+
+
+
+
+    private final AnimatableInstanceCache cache = new SingletonAnimatableInstanceCache(this);
+    private final Supplier<Object> renderProvider = GeoItem.makeRenderer(this);
+    @Override
+    public void createRenderer(Consumer<Object> consumer) {
+        consumer.accept(new RenderProvider() {
+            private final PhantomBookItemRenderer renderer = new PhantomBookItemRenderer();
+
+            @Override
+            public BuiltinModelItemRenderer getCustomRenderer() {
+                return this.renderer;
+            }
+        });
+    }
+
+    @Override
+    public Supplier<Object> getRenderProvider() {
+        return renderProvider;
+    }
+
+    @Override
+    public void registerControllers(AnimatableManager.ControllerRegistrar controllerRegistrar) {
+        controllerRegistrar.add(new AnimationController<>(this, "controller",0,this::predicate));
+    }
+
+    boolean isUsing;
+    private <T extends GeoAnimatable> PlayState predicate(AnimationState<T> tAnimationState) {
+        if (this.isUsing){
+            tAnimationState.getController().setAnimation(RawAnimation.begin().then("open", Animation.LoopType.PLAY_ONCE).thenLoop("opened"));
+        }
+        else {
+            tAnimationState.getController().stop();
+            tAnimationState.getController().setAnimation(RawAnimation.begin().then("idle", Animation.LoopType.LOOP));
+        }
+        return PlayState.CONTINUE;
+    }
+
+    @Override
+    public double getTick(Object itemStack) {
+        return RenderUtils.getCurrentTick();
+    }
+
+    @Override
+    public AnimatableInstanceCache getAnimatableInstanceCache() {
+        return cache;
     }
 }

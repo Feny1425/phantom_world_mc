@@ -1,8 +1,10 @@
 {
+  "entity.phantom_world.small_phantom": "Small Phantom",
+
+
   "item.phantom_world.fero": "Fero",
   "item.phantom_world.raw_fero": "Raw Fero",
   "item.phantom_world.small_phantom_spawn_egg": "Small Phantom spawn egg",
-  "entity.phantom_world.small_phantom": "Small Phantom",
   "item.phantom_world.phantom_world_starter": "Book of Phantom",
   "item.phantom_world.page1_phantom_book": "Page 1",
   "item.phantom_world.page2_phantom_book": "Page 2",
@@ -10,12 +12,23 @@
   "item.phantom_world.page4_phantom_book": "Page 4",
   "item.phantom_world.page5_phantom_book": "Page 5",
   "item.phantom_world.page6_phantom_book": "Page 6",
+  "item.phantom_world.fero_helmet": "Fero Helmet",
+  "item.phantom_world.fero_chestplate": "Fero Chestplate",
+  "item.phantom_world.fero_leggings": "Fero Leggings",
+  "item.phantom_world.fero_boots": "Fero Boots",
   "block.phantom_world.blood": "The heart of the Possessed Piglin",
   "item.phantom_world.pass": "Missing Word",
   "item.phantom_world.phantom_starter_recipe": "Recipe of?",
+
+
   "itemgroup.fero": "Phantom World",
+
+
   "phantom_world.earthquake": "Earthquake",
+
+
   "block.phantom_world.phantom_book_holder": "Phantom Book Holder",
+  "block.phantom_world.phantom_magma": "Phantom Magma",
   "block.phantom_world.fero_block": "Block of Fero",
   "block.phantom_world.fero_ore": "Fero Ore",
   "block.phantom_world.fero_sheet": "Fero Sheet",
@@ -27,5 +40,17 @@
   "block.phantom_world.stripped_phantom_log_cleared": "Stripped Phantom log cleared",
   "block.phantom_world.phantom_wood": "Phantom wood",
   "block.phantom_world.stripped_phantom_wood": "Stripped Phantom wood",
-  "block.phantom_world.phantom_planks": "Phantom planks"
+  "block.phantom_world.phantom_planks": "Phantom planks",
+  "block.phantom_world.phantom_bricks": "Phantom bricks",
+
+  "effect.phantom_world.fear": "Fear",
+
+  "item.minecraft.potion.effect.fear_potion": "Fear Potion",
+  "item.minecraft.splash_potion.effect.fear_potion": "Splash Potion of Fear",
+  "item.minecraft.lingering_potion.effect.fear_potion": "Lingering Potion of Fear",
+
+  "advancements.story.obtain_fero_armor.title": "Make me Brave!",
+  "advancements.story.obtain_fero_armor.description": "No more fear!",
+  "advancements.story.mine_fero.title": "Feros!",
+  "advancements.story.mine_fero.description": "Mine some Feros."
 }

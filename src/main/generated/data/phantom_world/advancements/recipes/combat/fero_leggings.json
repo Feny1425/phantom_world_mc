@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_phantom_starter_recipe": {
+    "has_fero": {
       "conditions": {
         "items": [
           {
             "items": [
-              "phantom_world:phantom_starter_recipe"
+              "phantom_world:fero"
             ]
           }
         ]
@@ -15,20 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "phantom_world:phantom_starter_recipe"
+        "recipe": "phantom_world:fero_leggings"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_phantom_starter_recipe",
+      "has_fero",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "phantom_world:phantom_starter_recipe"
+      "phantom_world:fero_leggings"
     ]
   }
 }

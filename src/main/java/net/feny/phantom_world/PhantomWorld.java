@@ -7,11 +7,13 @@ import net.feny.phantom_world.block.ModBlocks;
 import net.feny.phantom_world.block.ModFlammableBlockRegistry;
 import net.feny.phantom_world.block.ModStrippedBlockRegistry;
 import net.feny.phantom_world.block.entity.ModBlockEntities;
+import net.feny.phantom_world.effect.ModEffects;
 import net.feny.phantom_world.entity.ModEntities;
 import net.feny.phantom_world.entity.custom.SmallPhantom;
 import net.feny.phantom_world.item.ModItemGroup;
 import net.feny.phantom_world.item.ModItems;
 import net.feny.phantom_world.networking.ModMessages;
+import net.feny.phantom_world.potion.ModPotions;
 import net.feny.phantom_world.world.dimension.ModDimensions;
 import net.feny.phantom_world.world.gen.ModWorldGeneration;
 import net.minecraft.registry.Registries;
@@ -47,6 +49,8 @@ public class PhantomWorld implements ModInitializer {
 		ModBlockEntities.registerBlockEntities();
 		ModMessages.registerC2SPackets();
 		ModDimensions.register();
+		ModEffects.registerEffects();
+		ModPotions.registerPotions();
 
 
 	}

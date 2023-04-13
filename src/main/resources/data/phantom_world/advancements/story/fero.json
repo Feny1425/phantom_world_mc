@@ -1,0 +1,32 @@
+{
+  "display": {
+    "icon": {
+      "item": "phantom_world:fero",
+      "nbt": "{Damage:0}"
+    },
+    "title": {
+      "translate": "advancements.story.mine_fero.title"
+    },
+    "description": {"translate":"advancements.story.mine_fero.description"}
+  },
+  "parent": "minecraft:story/mine_diamond",
+  "criteria": {
+    "fero": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "phantom_world:raw_fero"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "fero"
+    ]
+  ]
+}

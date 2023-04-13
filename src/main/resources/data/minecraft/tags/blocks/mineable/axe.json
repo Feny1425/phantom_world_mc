@@ -1,6 +1,11 @@
 {
   "replace": false,
   "values": [
+    "stripped_phantom_log",
+    "phantom_wood",
+    "stripped_phantom_wood",
+    "phantom_log",
+    "phantom_planks"
 
   ]
 }

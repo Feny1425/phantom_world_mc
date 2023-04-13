@@ -7,10 +7,13 @@ import net.feny.phantom_world.block.ModBlocks;
 import net.feny.phantom_world.entity.ModEntities;
 import net.feny.phantom_world.item.custom.HeartItem;
 import net.feny.phantom_world.item.custom.PhantomBookItem;
+import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
+
+import java.lang.reflect.Type;
 
 public class ModItems {
 
@@ -25,6 +28,15 @@ public class ModItems {
 
     public static final Item HEART = Registry.register(Registries.ITEM, new Identifier(PhantomWorld.MOD_ID, "heart"),
             new HeartItem(ModBlocks.BLOOD, new FabricItemSettings().maxDamage(44)));
+    public static final Item FERO_HELMET = Registry.register(Registries.ITEM, new Identifier(PhantomWorld.MOD_ID, "fero_helmet"),
+            new ArmorItem(ModArmorMaterials.FERO, ArmorItem.Type.HELMET, new FabricItemSettings()));
+    public static final Item FERO_CHESTPLATE = Registry.register(Registries.ITEM, new Identifier(PhantomWorld.MOD_ID, "fero_chestplate"),
+            new ArmorItem(ModArmorMaterials.FERO, ArmorItem.Type.CHESTPLATE, new FabricItemSettings()));
+    public static final Item FERO_LEGGINGS = Registry.register(Registries.ITEM, new Identifier(PhantomWorld.MOD_ID, "fero_leggings"),
+            new ArmorItem(ModArmorMaterials.FERO, ArmorItem.Type.LEGGINGS, new FabricItemSettings()));
+    public static final Item FERO_BOOTS = Registry.register(Registries.ITEM, new Identifier(PhantomWorld.MOD_ID, "fero_boots"),
+            new ArmorItem(ModArmorMaterials.FERO, ArmorItem.Type.BOOTS, new FabricItemSettings()));
+
 
 
     /** phantom book*/
@@ -70,6 +82,10 @@ public class ModItems {
         addToItemGroup(ModItemGroup.FERO,PAGE6);
         addToItemGroup(ModItemGroup.FERO,PASS);
         addToItemGroup(ModItemGroup.FERO,HEART);
+        addToItemGroup(ModItemGroup.FERO,FERO_HELMET);
+        addToItemGroup(ModItemGroup.FERO,FERO_CHESTPLATE);
+        addToItemGroup(ModItemGroup.FERO,FERO_BOOTS);
+        addToItemGroup(ModItemGroup.FERO,FERO_LEGGINGS);
     }
     private static void addToItemGroup(ItemGroup group, Item item){
         ItemGroupEvents.modifyEntriesEvent(group).register(entries -> entries.add(item));

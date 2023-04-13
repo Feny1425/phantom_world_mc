@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "D": {
+      "item": "phantom_world:fero"
+    }
+  },
+  "pattern": [
+    "DDD",
+    "D D",
+    "D D"
+  ],
+  "result": {
+    "item": "phantom_world:fero_leggings"
+  },
+  "show_notification": true
+}

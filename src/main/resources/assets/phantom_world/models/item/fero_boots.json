@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "phantom_world:item/fero_boots"
+  }
+}

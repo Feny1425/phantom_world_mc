@@ -9,7 +9,7 @@
       "ore_veins_enabled": true,
       "legacy_random_source": false,
       "default_block": {
-        "Name": "minecraft:grass_block"
+        "Name": "phantom_world:phantom_magma"
       },
       "default_fluid": {
         "Name": "minecraft:air",

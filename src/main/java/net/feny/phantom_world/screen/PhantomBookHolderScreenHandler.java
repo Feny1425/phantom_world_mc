@@ -1,25 +1,20 @@
 package net.feny.phantom_world.screen;
 
-import net.feny.phantom_world.PhantomWorld;
-import net.feny.phantom_world.block.entity.PhantomBookHolderEntity;
 import net.feny.phantom_world.item.ModItems;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.inventory.SimpleInventory;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.screen.Property;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.screen.slot.Slot;
 import net.minecraft.text.Text;
-import net.minecraft.text.TextColor;
 
 import static net.feny.phantom_world.block.entity.PhantomBookHolderEntity.SLOTS;
 import static net.feny.phantom_world.block.entity.PhantomBookHolderEntity.pageLevel;
 import static net.feny.phantom_world.item.custom.PhantomBookItem.BOOK_PROGRESS;
-import static net.feny.phantom_world.item.custom.PhantomBookItem.MAX_BOOK_PROGRESS;
 
 public class PhantomBookHolderScreenHandler extends ScreenHandler {
     private final Inventory inventory;

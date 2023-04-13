@@ -12,8 +12,7 @@ import net.minecraft.world.dimension.DimensionType;
 
 public class ModDimensions {
 
-    public static final RegistryKey<World> PHANTOM_DIMENSION_KEY = RegistryKey.of(RegistryKeys.WORLD,
-            new Identifier(PhantomWorld.MOD_ID,"phantom"));
+    public static final RegistryKey<World> PHANTOM_DIMENSION_KEY = RegistryKey.of(RegistryKeys.WORLD, new Identifier(PhantomWorld.MOD_ID,"phantom"));
     public static final RegistryKey<DimensionType> PHANTOM_TYPE_KEY = RegistryKey.of(RegistryKeys.DIMENSION_TYPE, PHANTOM_DIMENSION_KEY.getValue());
 
     public static void register(){

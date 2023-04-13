@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "phantom_world:block/phantom_bricks_unbreakable"
+  }
+}

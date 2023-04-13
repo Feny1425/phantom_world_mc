@@ -40,7 +40,7 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                 .input('B', Items.BOOK)
                 .criterion(FabricRecipeProvider.hasItem(ModItems.PHANTOM_STARTER_RECIPE),
                         FabricRecipeProvider.conditionsFromItem(ModItems.PHANTOM_STARTER_RECIPE))
-                .offerTo(exporter, new Identifier(PhantomWorld.MOD_ID,FabricRecipeProvider.getRecipeName(ModItems.PHANTOM_STARTER_RECIPE)));
+                .offerTo(exporter, new Identifier(PhantomWorld.MOD_ID,FabricRecipeProvider.getRecipeName(ModItems.PHANTOM_WORLD_STARTER)));
 
         ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModBlocks.FERO_SHEET,3)
                 .pattern("DDD")
@@ -50,6 +50,43 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                 .offerTo(exporter, new Identifier(PhantomWorld.MOD_ID,FabricRecipeProvider.getRecipeName(ModBlocks.FERO_SHEET)));
 
         phantom(exporter);
+        armor(exporter);
+    }
+    private static void armor(Consumer<RecipeJsonProvider> exporter){
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, ModItems.FERO_HELMET,1)
+                .pattern("DDD")
+                .pattern("D D")
+                .input('D', ModItems.FERO)
+                .criterion(FabricRecipeProvider.hasItem(ModItems.FERO),
+                        FabricRecipeProvider.conditionsFromItem(ModItems.FERO))
+                .offerTo(exporter, new Identifier(PhantomWorld.MOD_ID,FabricRecipeProvider.getRecipeName(ModItems.FERO_HELMET)));
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, ModItems.FERO_CHESTPLATE,1)
+                .pattern("D D")
+                .pattern("DDD")
+                .pattern("DDD")
+                .input('D', ModItems.FERO)
+                .criterion(FabricRecipeProvider.hasItem(ModItems.FERO),
+                        FabricRecipeProvider.conditionsFromItem(ModItems.FERO))
+                .offerTo(exporter, new Identifier(PhantomWorld.MOD_ID,FabricRecipeProvider.getRecipeName(ModItems.FERO_CHESTPLATE)));
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, ModItems.FERO_LEGGINGS,1)
+                .pattern("DDD")
+                .pattern("D D")
+                .pattern("D D")
+                .input('D', ModItems.FERO)
+                .criterion(FabricRecipeProvider.hasItem(ModItems.FERO),
+                        FabricRecipeProvider.conditionsFromItem(ModItems.FERO))
+                .offerTo(exporter, new Identifier(PhantomWorld.MOD_ID,FabricRecipeProvider.getRecipeName(ModItems.FERO_LEGGINGS)));
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, ModItems.FERO_BOOTS,1)
+                .pattern("D D")
+                .pattern("D D")
+                .input('D', ModItems.FERO)
+                .criterion(FabricRecipeProvider.hasItem(ModItems.FERO),
+                        FabricRecipeProvider.conditionsFromItem(ModItems.FERO))
+                .offerTo(exporter, new Identifier(PhantomWorld.MOD_ID,FabricRecipeProvider.getRecipeName(ModItems.FERO_BOOTS)));
+
     }
 
     private static void phantom(Consumer<RecipeJsonProvider> exporter) {

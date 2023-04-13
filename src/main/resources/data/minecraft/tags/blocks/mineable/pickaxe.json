@@ -3,6 +3,7 @@
   "values": [
     "phantom_world:fero_block",
     "phantom_world:fero_ore",
-    "phantom_world:deepslate_fero_ore"
+    "phantom_world:deepslate_fero_ore",
+    "phantom_magma"
   ]
 }
